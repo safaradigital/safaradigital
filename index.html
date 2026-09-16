@@ -2245,6 +2245,33 @@
       }
     }
 
+
+    /* ===== KATEGORI TEMPLATE & LAYANAN PRINT ===== */
+    .category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px}
+    .category-card.request-active{border-color:var(--primary);box-shadow:0 18px 48px rgba(13,110,253,.16)}
+    .request-domain-box{display:none;margin-top:20px;padding:20px;border:1px solid #cfe0f7;border-radius:20px;background:#f5f9ff}
+    .request-domain-box.active{display:block}
+    .domain-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .domain-chip{padding:7px 11px;border-radius:999px;background:#fff;border:1px solid var(--border);font-size:.82rem;font-weight:850;color:var(--navy-2)}
+
+    .category-card{padding:24px;text-align:left;cursor:pointer;border:1px solid var(--border);border-radius:22px;background:var(--white);box-shadow:var(--shadow-sm);transition:.25s ease}
+    .category-card:hover,.category-card.active{transform:translateY(-5px);border-color:var(--primary);box-shadow:0 18px 45px rgba(13,110,253,.15)}
+    .category-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:var(--primary-soft);color:var(--primary);font-size:1.45rem;margin-bottom:16px}
+    .category-card h3{font-size:1.08rem;margin-bottom:7px}
+    .category-card p{font-size:.86rem}
+    .template-group{display:none}.template-group.active{display:block}
+    .template-group-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:8px 0 20px}
+    .template-group-head p{font-size:.9rem}
+    .template-placeholder{aspect-ratio:1/1;display:grid;place-items:center;padding:24px;text-align:center;background:linear-gradient(145deg,#eef6ff,#dfeaff);color:var(--primary);font-weight:900;font-size:1.1rem}
+    .template-placeholder span{display:block;font-size:2.4rem;margin-bottom:8px}
+    .print-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .print-card{padding:26px}.print-icon{width:50px;height:50px;display:grid;place-items:center;border-radius:15px;background:var(--primary-soft);color:var(--primary);font-size:1.35rem;margin-bottom:16px}
+    .print-list{list-style:none;display:grid;gap:9px;margin-top:17px}.print-list li{display:flex;justify-content:space-between;gap:15px;padding:10px 0;border-bottom:1px solid var(--border);font-size:.9rem}.print-list li:last-child{border-bottom:0}.print-list strong{color:var(--primary);white-space:nowrap}
+    .address-box{margin-top:22px;padding:18px;border:1px solid rgba(255,255,255,.18);border-radius:18px;background:rgba(255,255,255,.08)}
+    .address-box strong{display:block;color:#fff;margin-bottom:5px}.address-box span{color:rgba(255,255,255,.78);font-size:.88rem}
+    @media(max-width:980px){.category-grid{grid-template-columns:repeat(2,1fr)}.print-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:680px){.category-grid,.print-grid{grid-template-columns:1fr}.template-group-head{display:block}}
+
   </style>
 </head>
 
@@ -2259,7 +2286,8 @@
         <li><a href="#home" class="active">Beranda</a></li>
         <li><a href="#tentang">Tentang</a></li>
         <li><a href="#template">Template</a></li>
-        <li><a href="#paket">Harga</a></li>
+        <li><a href="#paket">Paket Website</a></li>
+        <li><a href="#print">Print & Fotokopi</a></li>
         <li><a href="#pembayaran">Cara Pesan</a></li>
         <li><a href="#kontak">Kontak</a></li>
       </ul>
@@ -2343,7 +2371,7 @@
 
     <div class="container stats reveal">
       <div class="stat"><strong>One Page</strong><span>Semua menu dalam satu halaman</span></div>
-      <div class="stat"><strong>3 Paket</strong><span>Pilihan sesuai kebutuhan</span></div>
+      <div class="stat"><strong>2 Paket</strong><span>Standard & Premium</span></div>
       <div class="stat"><strong>QRIS</strong><span>Pembayaran lebih praktis</span></div>
       <div class="stat"><strong>WhatsApp</strong><span>Konfirmasi pesanan langsung</span></div>
     </div>
@@ -2409,76 +2437,69 @@
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow">Langkah 1</span>
-          <h2>Pilih desain <span class="gradient-text">template website.</span></h2>
-          <p>Klik salah satu template. Setelah itu, pilihan paket harga akan aktif.</p>
+          <h2>Pilih kategori <span class="gradient-text">website.</span></h2>
+          <p>Setiap kategori memiliki kumpulan template sendiri. Pilih kategori terlebih dahulu, kemudian pilih template yang sesuai.</p>
         </div>
 
-        <div class="flow-note reveal"><span>1</span> Pilih template terlebih dahulu, lalu lanjutkan memilih paket.</div>
+        <div class="category-grid">
+          <article class="category-card reveal active" data-category="undangan">
+            <div class="category-icon">💍</div><h3>Web Undangan Digital</h3>
+            <p>Template undangan pernikahan digital dengan tampilan elegan dan responsif.</p>
+          </article>
+          <article class="category-card reveal" data-category="portfolio">
+            <div class="category-icon">👤</div><h3>Web Portofolio</h3>
+            <p>Template untuk personal branding, mahasiswa, fresh graduate, freelancer, dan profesional.</p>
+          </article>
+          <article class="category-card reveal" data-category="umkm">
+            <div class="category-icon">🏪</div><h3>Web UMKM</h3>
+            <p>Template bisnis untuk profil usaha, katalog produk, layanan, dan kontak pelanggan.</p>
+          </article>
+          <article class="category-card reveal" data-category="request">
+            <div class="category-icon">✦</div><h3>Web Request</h3>
+            <p>Website custom sesuai konsep, warna, struktur, fitur, dan kebutuhan yang kamu request.</p>
+          </article>
+        </div>
 
-        <div class="template-grid">
-          <article class="card template-card reveal" data-template="Template 1" data-template-image="template-1.webp">
-            <div class="template-image-wrap"><img src="portofolio/1.png" alt="Pilihan desain Template 1 Safara Digital" loading="lazy" /></div>
-            <div class="template-info">
-              <div class="template-info-top"><div><h3>Template 1</h3><p>Nuansa gelap ungu dan biru. Cocok untuk mahasiswa kreatif dan personal branding modern.</p></div><span class="template-number">T1</span></div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 1" data-template-image="template-1.webp">Pilih Template 1</button>
-            </div>
-          </article>
+        <div class="flow-note reveal"><span>1</span> Pilih kategori → Undangan, Portofolio, dan UMKM menampilkan template masing-masing. Web Request langsung ke paket.</div>
 
-          <article class="card template-card reveal" data-template="Template 2" data-template-image="template-2.webp">
-            <div class="template-image-wrap"><img src="portofolio/2.png" alt="Pilihan desain Template 2 Safara Digital" loading="lazy" /></div>
-            <div class="template-info">
-              <div class="template-info-top"><div><h3>Template 2</h3><p>Nuansa hitam dan merah. Cocok untuk profil kreatif, studio, dan portofolio berkarakter kuat.</p></div><span class="template-number">T2</span></div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 2" data-template-image="template-2.webp">Pilih Template 2</button>
-            </div>
-          </article>
+        <div class="request-domain-box" id="requestDomainBox">
+          <strong>Web Request — Custom Website</strong>
+          <p style="margin-top:6px">Tidak menggunakan template. Harga langsung: <b>Standard Rp20.000</b> atau <b>Premium Rp500.000</b>.</p>
+          <div class="domain-chips" aria-label="Pilihan ekstensi domain premium">
+            <span class="domain-chip">.com</span><span class="domain-chip">.net</span><span class="domain-chip">.org</span><span class="domain-chip">.biz</span><span class="domain-chip">.id</span><span class="domain-chip">.my.id</span>
+          </div>
+          <p style="margin-top:10px;font-size:.86rem">Paket Premium Rp500.000 sudah termasuk pilihan domain <b>.com / .net / .org / .biz / .id / .my.id</b> selama 1 tahun, hosting, serta fitur <b>Admin & User</b>.</p>
+        </div>
 
-          <article class="card template-card reveal" data-template="Template 3" data-template-image="template-3.webp">
-            <div class="template-image-wrap"><img src="portofolio/3.png" alt="Pilihan desain Template 3 Safara Digital" loading="lazy" /></div>
-            <div class="template-info">
-              <div class="template-info-top"><div><h3>Template 3</h3><p>Nuansa putih dan hijau. Cocok untuk tampilan bersih, profesional, dan layanan ramah.</p></div><span class="template-number">T3</span></div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 3" data-template-image="template-3.webp">Pilih Template 3</button>
-            </div>
-          </article>
+        <div class="template-group active" data-template-group="undangan">
+          <div class="template-group-head"><div><h3>Template Undangan Digital</h3><p>Pilih template undangan. Setelah memilih template, tersedia Standard Rp20.000 (nama undangan, no custom) atau Premium Rp50.000 (custom unlimited).</p></div></div>
+          <div class="template-grid">
+            <article class="card template-card reveal" data-template="Undangan Digital 01" data-template-image="template-undangan-1.webp"><div class="template-placeholder"><div><span>💍</span>Undangan Elegant</div></div><div class="template-info"><div class="template-info-top"><div><h3>Elegant Wedding</h3><p>Gaya elegan dan clean untuk undangan pernikahan.</p></div><span class="template-number">U1</span></div><button class="btn btn-secondary btn-block select-template" data-template="Undangan Digital 01" data-template-image="template-undangan-1.webp">Pilih Template</button></div></article>
+            <article class="card template-card reveal" data-template="Undangan Digital 02" data-template-image="template-undangan-2.webp"><div class="template-placeholder"><div><span>🌿</span>Undangan Botanical</div></div><div class="template-info"><div class="template-info-top"><div><h3>Botanical Wedding</h3><p>Nuansa natural dengan sentuhan botanical.</p></div><span class="template-number">U2</span></div><button class="btn btn-secondary btn-block select-template" data-template="Undangan Digital 02" data-template-image="template-undangan-2.webp">Pilih Template</button></div></article>
+            <article class="card template-card reveal" data-template="Undangan Digital 03" data-template-image="template-undangan-3.webp"><div class="template-placeholder"><div><span>✨</span>Undangan Modern</div></div><div class="template-info"><div class="template-info-top"><div><h3>Modern Wedding</h3><p>Modern, minimal, dan cocok untuk pasangan muda.</p></div><span class="template-number">U3</span></div><button class="btn btn-secondary btn-block select-template" data-template="Undangan Digital 03" data-template-image="template-undangan-3.webp">Pilih Template</button></div></article>
+          </div>
+        </div>
 
-          <article class="card template-card reveal" data-template="Template 4" data-template-image="template-4.webp">
-            <div class="template-image-wrap"><img src="portofolio/4.png" alt="Pilihan desain Template 4 Safara Digital" loading="lazy" /></div>
-            <div class="template-info">
-              <div class="template-info-top"><div><h3>Template 4</h3><p>Nuansa putih dan biru. Cocok untuk dosen, engineer, peneliti, dan profesional akademik.</p></div><span class="template-number">T4</span></div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 4" data-template-image="template-4.webp">Pilih Template 4</button>
-            </div>
-          </article>
+        <div class="template-group" data-template-group="portfolio">
+          <div class="template-group-head"><div><h3>Template Portofolio</h3><p>Pilih template portofolio khusus kategori ini, lalu pilih paket Standard atau Premium.</p></div></div>
+          <div class="template-grid">
+          <article class="card template-card reveal" data-template="Portfolio 01" data-template-image="portofolio/1.png"><div class="template-image-wrap"><img src="portofolio/1.png" alt="Template portofolio 1" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 01</h3><p>Modern dan kreatif untuk personal branding.</p></div><span class="template-number">P1</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 01" data-template-image="portofolio/1.png">Pilih Template</button></div></article>
+          <article class="card template-card reveal" data-template="Portfolio 02" data-template-image="portofolio/2.png"><div class="template-image-wrap"><img src="portofolio/2.png" alt="Template portofolio 2" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 02</h3><p>Bold dan berkarakter untuk kreator.</p></div><span class="template-number">P2</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 02" data-template-image="portofolio/2.png">Pilih Template</button></div></article>
+          <article class="card template-card reveal" data-template="Portfolio 03" data-template-image="portofolio/3.png"><div class="template-image-wrap"><img src="portofolio/3.png" alt="Template portofolio 3" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 03</h3><p>Clean dan profesional untuk berbagai bidang.</p></div><span class="template-number">P3</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 03" data-template-image="portofolio/3.png">Pilih Template</button></div></article>
+          <article class="card template-card reveal" data-template="Portfolio 04" data-template-image="portofolio/4.png"><div class="template-image-wrap"><img src="portofolio/4.png" alt="Template portofolio 4" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 04</h3><p>Formal dan cocok untuk profesional akademik.</p></div><span class="template-number">P4</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 04" data-template-image="portofolio/4.png">Pilih Template</button></div></article>
+          <article class="card template-card reveal" data-template="Portfolio 05" data-template-image="portofolio/5.png"><div class="template-image-wrap"><img src="portofolio/5.png" alt="Template portofolio 5" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 05</h3><p>Soft, modern, dan nyaman dibaca.</p></div><span class="template-number">P5</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 05" data-template-image="portofolio/5.png">Pilih Template</button></div></article>
+          <article class="card template-card reveal" data-template="Portfolio 06" data-template-image="portofolio/6.png"><div class="template-image-wrap"><img src="portofolio/6.png" alt="Template portofolio 6" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 06</h3><p>Profesional untuk engineer dan profil korporat.</p></div><span class="template-number">P6</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 06" data-template-image="portofolio/6.png">Pilih Template</button></div></article>
+          <article class="card template-card reveal" data-template="Portfolio 07" data-template-image="portofolio/7.png"><div class="template-image-wrap"><img src="portofolio/7.png" alt="Template portofolio 7" loading="lazy"></div><div class="template-info"><div class="template-info-top"><div><h3>Portfolio 07</h3><p>Modern dan profesional untuk fresh graduate.</p></div><span class="template-number">P7</span></div><button class="btn btn-secondary btn-block select-template" data-template="Portfolio 07" data-template-image="portofolio/7.png">Pilih Template</button></div></article>
+          </div>
+        </div>
 
-          <article class="card template-card reveal" data-template="Template 5" data-template-image="template-5.webp">
-            <div class="template-image-wrap"><img src="portofolio/5.png" alt="Pilihan desain Template 5 Safara Digital" loading="lazy" /></div>
-            <div class="template-info">
-              <div class="template-info-top"><div><h3>Template 5</h3><p>Nuansa putih dan hijau lembut. Cocok untuk mahasiswa, riset, pendidikan, dan portofolio formal.</p></div><span class="template-number">T5</span></div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 5" data-template-image="template-5.webp">Pilih Template 5</button>
-            </div>
-          </article>
-
-          <article class="card template-card reveal" data-template="Template 6" data-template-image="template-6.webp">
-            <div class="template-image-wrap"><img src="portofolio/6.png" alt="Pilihan desain Template 6 Safara Digital" loading="lazy" /></div>
-            <div class="template-info">
-              <div class="template-info-top"><div><h3>Template 6</h3><p>Nuansa biru profesional. Cocok untuk engineer, project control, konsultan, dan profil korporat.</p></div><span class="template-number">T6</span></div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 6" data-template-image="template-6.webp">Pilih Template 6</button>
-            </div>
-          </article>
-        
-          <article class="card template-card template-seven reveal" data-template="Template 7" data-template-image="template-7.webp">
-            <div class="template-image-wrap">
-              <img src="portofolio/7.png" alt="Pilihan desain Template 7 Safara Digital untuk website portofolio profesional" loading="lazy" />
-            </div>
-            <div class="template-info">
-              <div class="template-info-top">
-                <div>
-                  <h3>Template 7</h3>
-                  <p>Nuansa biru modern dan profesional. Cocok untuk mahasiswa, fresh graduate, legal, administrasi, dan personal branding.</p>
-                </div>
-                <span class="template-number">T7</span>
-              </div>
-              <button class="btn btn-secondary btn-block select-template" data-template="Template 7" data-template-image="template-7.webp">Pilih Template 7</button>
-            </div>
-          </article>
+        <div class="template-group" data-template-group="umkm">
+          <div class="template-group-head"><div><h3>Template Website UMKM</h3><p>Pilih template UMKM khusus kategori bisnis, lalu pilih paket Standard atau Premium.</p></div></div>
+          <div class="template-grid">
+            <article class="card template-card reveal" data-template="UMKM 01" data-template-image="template-umkm-1.webp"><div class="template-placeholder"><div><span>🛍️</span>UMKM Store</div></div><div class="template-info"><div class="template-info-top"><div><h3>UMKM Store</h3><p>Cocok untuk katalog produk dan pemesanan WhatsApp.</p></div><span class="template-number">M1</span></div><button class="btn btn-secondary btn-block select-template" data-template="UMKM 01" data-template-image="template-umkm-1.webp">Pilih Template</button></div></article>
+            <article class="card template-card reveal" data-template="UMKM 02" data-template-image="template-umkm-2.webp"><div class="template-placeholder"><div><span>☕</span>Business Cafe</div></div><div class="template-info"><div class="template-info-top"><div><h3>Business Cafe</h3><p>Untuk cafe, kuliner, dan bisnis F&amp;B.</p></div><span class="template-number">M2</span></div><button class="btn btn-secondary btn-block select-template" data-template="UMKM 02" data-template-image="template-umkm-2.webp">Pilih Template</button></div></article>
+            <article class="card template-card reveal" data-template="UMKM 03" data-template-image="template-umkm-3.webp"><div class="template-placeholder"><div><span>🏷️</span>Business Profile</div></div><div class="template-info"><div class="template-info-top"><div><h3>Business Profile</h3><p>Profil usaha dengan layanan, katalog, dan kontak.</p></div><span class="template-number">M3</span></div><button class="btn btn-secondary btn-block select-template" data-template="UMKM 03" data-template-image="template-umkm-3.webp">Pilih Template</button></div></article>
+          </div>
         </div>
 
         <div class="template-status" id="templateStatus">Belum ada template yang dipilih.</div>
@@ -2489,78 +2510,62 @@
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow">Langkah 2</span>
-          <h2>Pilih paket sesuai <span class="gradient-text">kebutuhan website.</span></h2>
-          <p>Setelah template dipilih, klik paket. Pesanan langsung masuk ke keranjang lengkap dengan template dan harga.</p>
-        </div>
-
-        <div class="flow-note reveal"><span>2</span> Tombol paket aktif setelah Anda memilih template.</div>
-
-        <div class="promo-banner reveal" id="promoBanner" role="status" aria-live="polite">
-          <span class="promo-banner-badge">PROMO</span>
-          <div>
-            <strong id="promoBannerTitle">PROMO Rp10.000 ALL IN</strong>
-            <small id="promoBannerText">Berlaku 20 Juli–1 Agustus 2026.</small>
-          </div>
+          <h2>Pilih paket <span class="gradient-text">website.</span></h2>
+          <p>Undangan, Portofolio, dan UMKM memiliki template masing-masing. Web Request langsung memilih paket Standard atau Premium.</p>
         </div>
 
         <div class="pricing-grid">
-          <article class="card price-card reveal" data-package-card="Starter">
-            <span class="price-label">Paket awal</span>
-            <h3>Starter</h3>
-            <div class="price" data-price-display="Starter">
-              <span class="price-original">Rp15.000</span>
-              <span class="price-current">Rp10.000</span>
-            </div>
-            <div class="promo-period" data-promo-note="Starter">Promo 20 Juli–1 Agustus 2026 • Rp10.000 all in</div>
-            <div class="price-note">Website one page sederhana</div>
-            <ul class="price-features">
-              <li>Maksimal 4 section.</li>
-              <li>Contoh: Home, Tentang, Portofolio, Kontak.</li>
-              <li>Desain modern dan responsif.</li>
-              <li>Cocok untuk mahasiswa.</li>
-              <li>Cocok untuk personal branding sederhana.</li>
-            </ul>
-            <button class="btn btn-secondary btn-block choose-package" data-package="Starter" data-price="Rp10.000" disabled>Pilih Starter</button>
-          </article>
-
           <article class="card price-card featured reveal" data-package-card="Standard">
-            <span class="popular-badge">Paling populer</span>
-            <span class="price-label">Paket utama</span>
-            <h3>Standard</h3>
-            <div class="price" data-price-display="Standard">
-              <span class="price-original">Rp25.000</span>
-              <span class="price-current">Rp10.000</span>
-            </div>
-            <div class="promo-period" data-promo-note="Standard">Promo 20 Juli–1 Agustus 2026 • Rp10.000 all in</div>
-            <div class="price-note">Website one page lebih lengkap</div>
-            <ul class="price-features">
-              <li>Maksimal 6 section.</li>
-              <li>Desain modern dan responsif.</li>
-              <li>Tambahan section Skill, Layanan, atau Testimoni.</li>
-              <li>Cocok untuk freelancer.</li>
-              <li>Cocok untuk content creator dan UMKM.</li>
+            <span class="popular-badge">Standard</span>
+            <span class="price-label" data-standard-label>Paket website</span>
+            <h3 data-standard-title>Standard</h3>
+            <div class="price" data-price-display="Standard"><span class="price-original"></span><span class="price-current">Rp20.000</span></div>
+            <div class="price-note" data-standard-note>Website sesuai template pilihan dengan hosting dan domain dari Safara Digital.</div>
+            <ul class="price-features" data-standard-features>
+              <li>Website modern & responsif.</li>
+              <li>Template sesuai kategori.</li>
+              <li>Hosting dari Safara Digital.</li>
+              <li>Domain dari Safara Digital.</li>
+              <li>Penyesuaian konten dasar.</li>
             </ul>
-            <button class="btn btn-secondary btn-block choose-package" data-package="Standard" data-price="Rp10.000" disabled>Pilih Standard</button>
+            <button class="btn btn-secondary btn-block choose-package" data-package="Standard" data-price="Rp20.000">Pilih Standard</button>
           </article>
 
           <article class="card price-card reveal" data-package-card="Premium">
-            <span class="price-label">Paket lengkap</span>
-            <h3>Premium</h3>
-            <div class="price" data-price-display="Premium">
-              <span class="price-original">Rp35.000</span>
-              <span class="price-current">Rp10.000</span>
-            </div>
-            <div class="promo-period" data-promo-note="Premium">Promo 20 Juli–1 Agustus 2026 • Rp10.000 all in</div>
-            <div class="price-note">Website one page eksklusif</div>
-            <ul class="price-features">
-              <li>Maksimal 8 sampai 10 section.</li>
-              <li>Desain lebih eksklusif.</li>
-              <li>Dapat ditambahkan Galeri, FAQ, dan Form Kontak.</li>
-              <li>Section lain dapat disesuaikan.</li>
-              <li>Cocok untuk bisnis atau personal branding lengkap.</li>
+            <span class="price-label" data-premium-label>Paket website</span>
+            <h3 data-premium-title>Premium</h3>
+            <div class="price" data-price-display="Premium"><span class="price-original"></span><span class="price-current">Rp500.000</span></div>
+            <div class="price-note" data-premium-note>Website lebih lengkap dengan fleksibilitas domain dan kebutuhan custom.</div>
+            <ul class="price-features" data-premium-features>
+              <li>Website modern & responsif.</li>
+              <li>Template sesuai kategori.</li>
+              <li>Hosting disiapkan untuk website.</li>
+              <li>Domain dapat request sesuai kebutuhan.</li>
+              <li>Penyesuaian layout, warna, konten, dan section.</li>
             </ul>
-            <button class="btn btn-secondary btn-block choose-package" data-package="Premium" data-price="Rp10.000" disabled>Pilih Premium</button>
+            <button class="btn btn-secondary btn-block choose-package" data-package="Premium" data-price="Rp500.000">Pilih Premium</button>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="print">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow">Layanan Print</span>
+          <h2>Print, fotokopi & <span class="gradient-text">jasa dokumen.</span></h2>
+          <p>Layanan cetak dan dokumen tersedia langsung di alamat Safara Digital.</p>
+        </div>
+
+        <div class="print-grid">
+          <article class="card print-card reveal"><div class="print-icon">📄</div><h3>Print & Fotokopi A4</h3><ul class="print-list"><li><span>Print warna 1 lembar</span><strong>Rp1.000</strong></li><li><span>Print warna 3 lembar</span><strong>Rp2.000</strong></li><li><span>Full Color 1 lembar</span><strong>Rp1.500</strong></li><li><span>Full Color 3 lembar</span><strong>Rp3.500</strong></li><li><span>Print hitam putih 1 lembar</span><strong>Rp500</strong></li><li><span>Print hitam putih 5 lembar</span><strong>Rp2.000</strong></li><li><span>Fotokopi 3 lembar</span><strong>Rp1.000</strong></li><li><span>Scan dokumen</span><strong>Rp1.000</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">🖨️</div><h3>Print & Fotokopi F4</h3><ul class="print-list"><li><span>Print hitam putih 1 lembar</span><strong>Rp750</strong></li><li><span>Print hitam putih 5 lembar</span><strong>Rp3.000</strong></li><li><span>Full Color 1 lembar</span><strong>Rp2.000</strong></li><li><span>Tidak full warna 1 lembar</span><strong>Rp1.500</strong></li><li><span>Print warna 3 lembar</span><strong>Rp3.000</strong></li><li><span>Fotokopi 1 lembar</span><strong>Rp500</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">🗂️</div><h3>Print & Fotokopi A5</h3><ul class="print-list"><li><span>Print hitam putih 1 lembar</span><strong>Rp250</strong></li><li><span>Full Color 1 lembar</span><strong>Rp500</strong></li><li><span>Fotokopi 1 lembar</span><strong>Rp200</strong></li><li><span>Fotokopi 7 lembar</span><strong>Rp1.500</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">✂️</div><h3>Jasa Edit</h3><ul class="print-list"><li><span>Edit sederhana</span><strong>Rp5.000</strong></li><li><span>Edit menengah–kompleks</span><strong>Rp15.000</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">💳</div><h3>Laminating Card / KTP</h3><ul class="print-list"><li><span>Card / KTP</span><strong>Rp2.000</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">📑</div><h3>Laminating A4 / F4</h3><ul class="print-list"><li><span>Ukuran A4 / F4</span><strong>Rp5.000</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">📚</div><h3>Jilid Proposal & Dokumen</h3><ul class="print-list"><li><span>Jilid mulai</span><strong>Rp4.000</strong></li><li><span>Jilid premium / tebal</span><strong>Rp7.000</strong></li></ul></article>
+          <article class="card print-card reveal"><div class="print-icon">🪪</div><h3>Press Mika A4 / F4</h3><ul class="print-list"><li><span>Ukuran A4 / F4</span><strong>Rp4.000</strong></li></ul></article>
         </div>
       </div>
     </section>
@@ -2574,8 +2579,8 @@
         </div>
 
         <div class="order-flow-grid">
-          <article class="card order-step-card reveal"><div class="order-step-number">1</div><h3>Pilih Template</h3><p>Pembeli memilih salah satu dari enam desain template.</p></article>
-          <article class="card order-step-card reveal"><div class="order-step-number">2</div><h3>Pilih Paket</h3><p>Pembeli memilih Starter, Standard, atau Premium.</p></article>
+          <article class="card order-step-card reveal"><div class="order-step-number">1</div><h3>Pilih Template</h3><p>Pembeli memilih kategori website, lalu memilih template dari kategori tersebut.</p></article>
+          <article class="card order-step-card reveal"><div class="order-step-number">2</div><h3>Pilih Paket</h3><p>Pembeli memilih paket Standard atau Premium.</p></article>
           <article class="card order-step-card reveal"><div class="order-step-number">3</div><h3>Cek Keranjang</h3><p>Template, nama paket, dan harga tampil otomatis di keranjang.</p></article>
           <article class="card order-step-card reveal"><div class="order-step-number">4</div><h3>Checkout QRIS</h3><p>Setelah data diisi dan checkout diklik, gambar QRIS baru ditampilkan.</p></article>
         </div>
@@ -2628,6 +2633,8 @@
           </div>
 
           <div class="contact-links">
+            <div class="address-box"><strong>📍 Alamat</strong><span>Perumahan Babadan Asri Blok F11, Desa Junwangi, Kecamatan Krian, Kabupaten Sidoarjo.</span></div>
+
             <a class="contact-link" href="https://wa.me/62882003365621" target="_blank" rel="noopener">
               <span class="float-icon">WA</span>
               <div><b>WhatsApp</b><small>0882-0033-65621</small></div>
@@ -2667,7 +2674,7 @@
 
       <div class="cart-body">
         <div class="cart-empty" id="cartEmpty">
-          <div><div class="cart-empty-icon">🛒</div><h3>Keranjang masih kosong</h3><p>Pilih template terlebih dahulu, lalu pilih paket harga.</p></div>
+          <div><div class="cart-empty-icon">🛒</div><h3>Keranjang masih kosong</h3><p>Pilih kategori dan template terlebih dahulu, lalu pilih paket Standard atau Premium.</p></div>
         </div>
 
         <div id="cartContent" class="hidden">
@@ -2779,7 +2786,8 @@
       <nav class="footer-nav" aria-label="Navigasi footer">
         <a href="#home">Beranda</a>
         <a href="#template">Template</a>
-        <a href="#paket">Harga</a>
+        <a href="#paket">Paket Website</a>
+        <a href="#print">Print & Fotokopi</a>
         <a href="#pembayaran">Cara Pesan</a>
         <a href="#kontak">Kontak</a>
       </nav>
@@ -2846,20 +2854,31 @@
     const sendProofButton = document.getElementById("sendProofButton");
     const removeCartItemButton = document.getElementById("removeCartItemButton");
 
+    // Harga dasar Web Portofolio & Web UMKM disamakan dengan Web Request.
+    // Undangan Digital memakai tabel harga khusus di bawah.
     const PACKAGE_BASE_PRICES = {
-      Starter: 15000,
-      Standard: 25000,
-      Premium: 35000
+      Standard: 20000,
+      Premium: 500000
     };
 
-    const PROMO_ALL_IN_PRICE = 10000;
-    const PROMO_START = new Date("2026-07-20T00:00:00+07:00");
-    const PROMO_END = new Date("2026-08-01T23:59:59+07:00");
+    // Harga khusus kategori Undangan Digital
+    const INVITATION_PACKAGE_PRICES = {
+      Standard: 20000,
+      Premium: 50000
+    };
+
+    // Harga khusus Web Request
+    const REQUEST_PACKAGE_PRICES = {
+      Standard: 20000,
+      Premium: 500000
+    };
 
     const order = {
+      category: "",
       template: "",
       templateImage: "",
       packageName: "",
+      packageLabel: "",
       basePrice: "",
       price: "",
       discount: "",
@@ -2895,27 +2914,42 @@
       return "Rp" + new Intl.NumberFormat("id-ID").format(value);
     }
 
-    function isPromoActive(date = new Date()) {
-      return date >= PROMO_START && date <= PROMO_END;
-    }
+    function getPackagePriceDetails(packageName) {
+      let priceTable = PACKAGE_BASE_PRICES;
 
-    function getPackagePriceDetails(packageName, date = new Date()) {
-      const baseValue = PACKAGE_BASE_PRICES[packageName] || 0;
-      const promoActive = isPromoActive(date);
-      const currentValue = promoActive
-        ? Math.min(baseValue, PROMO_ALL_IN_PRICE)
-        : baseValue;
-      const discountValue = Math.max(0, baseValue - currentValue);
+      if (order.category === "request") {
+        priceTable = REQUEST_PACKAGE_PRICES;
+      } else if (order.category === "undangan") {
+        priceTable = INVITATION_PACKAGE_PRICES;
+      }
+
+      const baseValue = priceTable[packageName] || 0;
 
       return {
         baseValue,
-        currentValue,
-        discountValue,
+        currentValue: baseValue,
+        discountValue: 0,
         baseText: formatRupiah(baseValue),
-        currentText: formatRupiah(currentValue),
-        discountText: formatRupiah(discountValue),
-        promoActive
+        currentText: formatRupiah(baseValue),
+        discountText: formatRupiah(0),
+        promoActive: false
       };
+    }
+
+    function getPackageDisplayName(packageName) {
+      if (order.category === "undangan") {
+        return packageName === "Standard"
+          ? "Standard — Nama Undangan (No Custom)"
+          : "Premium — Custom Nama Tamu Unlimited";
+      }
+
+      if (order.category === "request") {
+        return packageName === "Standard"
+          ? "Standard — Web Request"
+          : "Premium — Web Request";
+      }
+
+      return packageName;
     }
 
     function updatePromoBanner(date = new Date()) {
@@ -2939,7 +2973,8 @@
     }
 
     function refreshPackagePrices(date = new Date()) {
-      Object.keys(PACKAGE_BASE_PRICES).forEach(packageName => {
+      const packageNames = Object.keys(PACKAGE_BASE_PRICES);
+      packageNames.forEach(packageName => {
         const details = getPackagePriceDetails(packageName, date);
         const priceBox = document.querySelector('[data-price-display="' + packageName + '"]');
         const promoNote = document.querySelector('[data-promo-note="' + packageName + '"]');
@@ -3008,7 +3043,7 @@
 
       document.getElementById("checkoutTemplateImage").src = order.templateImage;
       document.getElementById("checkoutTemplateName").textContent = order.template;
-      document.getElementById("checkoutPackageName").textContent = order.packageName;
+      document.getElementById("checkoutPackageName").textContent = order.packageLabel || order.packageName;
       document.getElementById("checkoutPrice").textContent = order.price;
       resetQrisStage();
       closeCart();
@@ -3035,7 +3070,154 @@
       });
     }
 
+    function selectCategory(category) {
+      document.querySelectorAll(".category-card").forEach(card => {
+        card.classList.toggle("active", card.dataset.category === category);
+        card.classList.toggle("request-active", category === "request" && card.dataset.category === "request");
+      });
+
+      const isRequest = category === "request";
+      document.querySelectorAll(".template-group").forEach(group => {
+        group.classList.toggle("active", !isRequest && group.dataset.templateGroup === category);
+      });
+
+      order.category = category;
+      order.template = isRequest ? "Web Request / Custom Website" : "";
+      order.templateImage = isRequest ? "custom-request.webp" : "";
+      order.packageName = "";
+      order.packageLabel = "";
+      order.basePrice = "";
+      order.price = "";
+      order.discount = "";
+      order.isPromo = false;
+
+      document.querySelectorAll(".template-card").forEach(card => card.classList.remove("selected"));
+      document.querySelectorAll(".select-template").forEach(button => {
+        button.textContent = button.dataset.template === "Custom Web Request" ? "Pilih Custom Request" : "Pilih Template";
+        button.classList.remove("btn-primary");
+        button.classList.add("btn-secondary");
+      });
+      document.querySelectorAll("[data-package-card]").forEach(card => card.classList.remove("package-selected"));
+
+      const requestBox = document.getElementById("requestDomainBox");
+      if (requestBox) requestBox.classList.toggle("active", isRequest);
+
+      updatePackageCards(category);
+      refreshPackagePrices();
+
+      if (!isRequest) {
+        setTimeout(() => {
+          const group = document.querySelector('[data-template-group="' + category + '"]');
+          if (group) group.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 120);
+      }
+
+      const status = document.getElementById("templateStatus");
+      if (isRequest) {
+        status.textContent = "Web Request dipilih. Tidak perlu memilih template — langsung pilih paket Standard Rp20.000 atau Premium Rp500.000.";
+        status.classList.add("ready");
+        enablePackageButtons();
+        setTimeout(() => document.getElementById("paket").scrollIntoView({ behavior: "smooth" }), 180);
+      } else {
+        status.textContent = "Kategori dipilih. Silakan pilih template.";
+        status.classList.remove("ready");
+        document.querySelectorAll(".choose-package").forEach(button => button.disabled = true);
+      }
+      renderCart();
+    }
+
+    function updatePackageCards(category) {
+      // Pastikan harga selalu mengikuti kategori yang sedang aktif.
+      order.category = category;
+      const isRequest = category === "request";
+      const isInvitation = category === "undangan";
+
+      const standardLabel = document.querySelector("[data-standard-label]");
+      const standardTitle = document.querySelector("[data-standard-title]");
+      const standardNote = document.querySelector("[data-standard-note]");
+      const standardFeatures = document.querySelector("[data-standard-features]");
+      const premiumLabel = document.querySelector("[data-premium-label]");
+      const premiumTitle = document.querySelector("[data-premium-title]");
+      const premiumNote = document.querySelector("[data-premium-note]");
+      const premiumFeatures = document.querySelector("[data-premium-features]");
+
+      if (isRequest) {
+        if (standardLabel) standardLabel.textContent = "Web Request";
+        if (standardTitle) standardTitle.textContent = "Standard";
+        if (standardNote) standardNote.textContent = "Website custom sederhana sesuai request pelanggan.";
+        if (standardFeatures) standardFeatures.innerHTML = `
+          <li>Custom website sesuai request.</li>
+          <li>Hosting dari Safara Digital.</li>
+          <li>Domain dari Safara Digital.</li>
+          <li>Harga Web Request Standard: Rp20.000.</li>
+          <li>Cocok untuk website custom sederhana.</li>`;
+
+        if (premiumLabel) premiumLabel.textContent = "Web Request";
+        if (premiumTitle) premiumTitle.textContent = "Premium";
+        if (premiumNote) premiumNote.textContent = "Website custom lengkap dengan domain dan fitur Admin & User.";
+        if (premiumFeatures) premiumFeatures.innerHTML = `
+          <li>Custom website sesuai request.</li>
+          <li>Hosting + domain selama 1 tahun.</li>
+          <li>Pilihan domain: .com, .net, .org, .biz, .id, .my.id.</li>
+          <li>Fitur Admin & User.</li>
+          <li>Penyesuaian desain, halaman, dan fitur.</li>
+          <li>Harga Web Request Premium: Rp500.000.</li>`;
+      } else if (isInvitation) {
+        if (standardLabel) standardLabel.textContent = "Undangan Digital";
+        if (standardTitle) standardTitle.textContent = "Standard";
+        if (standardNote) standardNote.textContent = "Gunakan template undangan dengan nama pasangan/acara yang diisi pada konten.";
+        if (standardFeatures) standardFeatures.innerHTML = `
+          <li>Template undangan pernikahan digital.</li>
+          <li>Nama undangan dapat diisi.</li>
+          <li>Tidak termasuk custom desain.</li>
+          <li>Hosting dari Safara Digital.</li>
+          <li>Domain dari Safara Digital.</li>
+          <li>Harga Rp20.000.</li>`;
+
+        if (premiumLabel) premiumLabel.textContent = "Undangan Digital";
+        if (premiumTitle) premiumTitle.textContent = "Premium";
+        if (premiumNote) premiumNote.textContent = "Undangan digital dengan custom nama tamu undangan unlimited.";
+        if (premiumFeatures) premiumFeatures.innerHTML = `
+          <li>Template undangan pernikahan digital.</li>
+          <li>Custom nama tamu undangan unlimited.</li>
+          <li>Nama tamu dapat disesuaikan sesuai data yang diberikan.</li>
+          <li>Penyesuaian teks, warna, layout, dan section.</li>
+          <li>Hosting dari Safara Digital.</li>
+          <li>Domain dari Safara Digital.</li>
+          <li>Harga Rp50.000.</li>`;
+      } else {
+        if (standardLabel) standardLabel.textContent = "Paket website";
+        if (standardTitle) standardTitle.textContent = "Standard";
+        if (standardNote) standardNote.textContent = "Website sesuai template kategori dengan hosting dan domain dari Safara Digital.";
+        if (standardFeatures) standardFeatures.innerHTML = `
+          <li>Website modern & responsif.</li>
+          <li>Template khusus sesuai kategori.</li>
+          <li>Hosting dari Safara Digital.</li>
+          <li>Domain dari Safara Digital.</li>
+          <li>Penyesuaian konten dasar.</li>
+          <li>Template Portofolio dan UMKM tersedia masing-masing.</li>
+          <li>Harga Standard Rp20.000.</li>`;
+
+        if (premiumLabel) premiumLabel.textContent = "Paket website";
+        if (premiumTitle) premiumTitle.textContent = "Premium";
+        if (premiumNote) premiumNote.textContent = "Website lebih lengkap dengan fleksibilitas desain dan kebutuhan custom.";
+        if (premiumFeatures) premiumFeatures.innerHTML = `
+          <li>Website modern & responsif.</li>
+          <li>Template khusus sesuai kategori.</li>
+          <li>Hosting disiapkan untuk website.</li>
+          <li>Domain dapat request sesuai kebutuhan.</li>
+          <li>Penyesuaian layout, warna, konten, dan section.</li>
+          <li>Cocok untuk Portofolio dan UMKM.</li>
+          <li>Harga Premium Rp500.000.</li>`;
+      }
+
+      refreshPackagePrices();
+    }
+
     function selectTemplate(templateName, templateImage) {
+      const activeCategory = document.querySelector(".category-card.active");
+      // Simpan slug kategori agar harga dan fitur kategori tetap benar.
+      order.category = activeCategory ? activeCategory.dataset.category : "";
       order.template = templateName;
       order.templateImage = templateImage;
 
@@ -3067,6 +3249,7 @@
 
       const priceDetails = getPackagePriceDetails(packageName);
       order.packageName = packageName;
+      order.packageLabel = getPackageDisplayName(packageName);
       order.basePrice = priceDetails.baseText;
       order.price = priceDetails.currentText;
       order.discount = priceDetails.discountText;
@@ -3090,13 +3273,14 @@
 
       if (!hasItem) return;
       document.getElementById("cartTemplateImage").src = order.templateImage;
-      document.getElementById("cartItemTitle").textContent = order.template + " • " + order.packageName;
+      document.getElementById("cartItemTitle").textContent = order.template + " • " + (order.packageLabel || order.packageName);
       document.getElementById("cartItemPrice").textContent = order.price;
       document.getElementById("cartTotalPrice").textContent = order.price;
     }
 
     function removePackageFromCart() {
       order.packageName = "";
+      order.packageLabel = "";
       order.basePrice = "";
       order.price = "";
       order.discount = "";
@@ -3166,16 +3350,10 @@
         "",
         "*DETAIL PESANAN*",
         "Pesanan: Jasa Website One Page",
+        "Kategori website: " + (order.category || "-"),
         "Template: " + order.template,
         "Pilihan paket: " + order.packageName,
-        ...(order.isPromo ? [
-          "Harga normal: " + order.basePrice,
-          "Diskon promo: " + order.discount,
-          "Total promo: " + order.price,
-          "Periode promo: 20 Juli–1 Agustus 2026"
-        ] : [
-          "Harga: " + order.price
-        ]),
+        "Harga: " + order.price,
         "Metode pembayaran: QRIS",
         "Catatan kebutuhan: " + note,
         "",
@@ -3331,8 +3509,18 @@
     updateMusicButton();
 
 
+    // ===== KATEGORI WEBSITE =====
+    // Setiap kartu kategori wajib benar-benar memanggil selectCategory().
+    document.querySelectorAll(".category-card").forEach(card => {
+      card.addEventListener("click", () => {
+        selectCategory(card.dataset.category);
+      });
+    });
+
     document.getElementById("year").textContent = new Date().getFullYear();
-    refreshPackagePrices();
+
+    // Kondisi awal: Undangan Digital. Harga langsung mengikuti kategori.
+    selectCategory("undangan");
     window.setInterval(refreshPackagePrices, 60000);
     renderCart();
   </script>
